@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
-from .views import todoFunc
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     # 管理アプリ
@@ -8,5 +9,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # TODOリストアプリ
     path('todo/', include('todo.urls')),
-    #path('a/', todoFunc),
-]
+    # 簡易SNS
+    path('board/', include('boardapp.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
