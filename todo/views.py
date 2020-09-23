@@ -10,30 +10,30 @@ def todo(req):
 
 # 表示用
 class TodoList(ListView):
-    template_name = 'todo/list.html'
+    template_name = 'list.html'
     model = TodoModel
 
 # 詳細
 class TodoDetail(DetailView):
-    template_name = 'todo/detail.html'
+    template_name = 'detail.html'
     model = TodoModel
     
 # 作成
 class TodoCreate(CreateView):
-    template_name = 'todo/create.html'
+    template_name = 'create.html'
     model = TodoModel
     fields = {'title', 'memo', 'priority', 'duedate'}
     success_url = reverse_lazy('list')
     
 # 更新
 class TodoUpdate(UpdateView):
-    template_name = 'todo/update.html'
+    template_name = 'update.html'
     model = TodoModel
     fields = {'title', 'memo', 'priority', 'duedate'}
     success_url = reverse_lazy('list')
 
 # 削除
 class TodoDelete(DeleteView):
-    template_name = 'todo/delete.html'
+    template_name = 'delete.html'
     model = TodoModel
     success_url = reverse_lazy('list')
