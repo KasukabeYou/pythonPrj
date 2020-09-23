@@ -23,17 +23,17 @@ class TodoCreate(CreateView):
     template_name = 'create.html'
     model = TodoModel
     fields = {'title', 'memo', 'priority', 'duedate'}
-    success_url = reverse_lazy('list')
+    success_url = reverse_lazy('todolist')
     
 # 更新
 class TodoUpdate(UpdateView):
     template_name = 'update.html'
     model = TodoModel
     fields = {'title', 'memo', 'priority', 'duedate'}
-    success_url = reverse_lazy('list')
+    success_url = reverse_lazy('todolist')
 
 # 削除
 class TodoDelete(DeleteView):
     template_name = 'delete.html'
     model = TodoModel
-    success_url = reverse_lazy('list')
+    success_url = reverse_lazy('todolist')
